@@ -1,0 +1,36 @@
+{
+  "name": "bingmapservices",
+  "version": "0.0.1",
+  "description": "Bing Maps Services",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@types/bingmapservices": "file:../@types/BingMapServices",
+    "@types/dynamicheadinsertion": "git+https://github.com/utdcometsoccer/DynamicHeadInsertionTypes.git",
+    "@types/maptypes": "file:../MapTypes",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.2",
+    "bingmaps": "^2.0.3",
+    "dynamicheadinsertion": "git+https://github.com/utdcometsoccer/DynamicHeadInsertion.git",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utdcometsoccer/BingMapServices.git"
+  },
+  "keywords": [
+    "Bing",
+    "Maps",
+    "Services"
+  ],
+  "author": "Idaho Edokpayi (https://github.com/utdcometsoccer)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/utdcometsoccer/BingMapServices/issues"
+  },
+  "homepage": "https://github.com/utdcometsoccer/BingMapServices#readme"
+}
