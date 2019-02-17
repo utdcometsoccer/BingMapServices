@@ -18,7 +18,28 @@ class BingMapServices implements IMapService {
 
 
     public AutoSuggest(options: IAutoSuggestionOptions): void {
-
+        if (this._Map) {
+            Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', () => {
+                const manager = new Microsoft.Maps.AutosuggestManager({ map: this._Map });
+                manager.attachAutosuggest(
+                    options.SuggestionInputElementID,
+                    options.SuggestionInputElementContainerID,
+                    (suggestionResult: Microsoft.Maps.ISuggestionResult) => {
+                        if (options.SuggestionHandler) {
+                            const address = suggestionResult.address;
+                            options.SuggestionHandler({
+                                Address: {
+                                    City: address.locality,
+                                    StateProvince: address.adminDistrict,
+                                    StreetAddress: address.addressLine,
+                                    PostalCode: address.postalCode,
+                                    toString: () => address.formattedAddress
+                                }
+                            });
+                        }
+                    });
+            });
+        }
     }
     public GeoCode(Address: string): Promise<IPoint[]> {
         return new Promise<IPoint[]>(
